@@ -92,10 +92,17 @@
             "styles": [
               "src/styles.css"
             ],
+            "styles": [
+              "src/styles.css",
+              "node_modules/@fortawesome/fontawesome-free/css/all.min.css"
+            ],
             "scripts": []
           }
         }
       }
     }
+  },
+  "cli": {
+    "analytics": "5795c942-1ba5-47bd-9e29-28ad6c5f6455"
   }
 }

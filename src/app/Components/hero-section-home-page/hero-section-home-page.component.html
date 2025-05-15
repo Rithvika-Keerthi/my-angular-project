@@ -1,0 +1,8 @@
+<div class="container-fluid d-flex flex-column justify-content-center align-items-center text-center vh-100" style="background: linear-gradient(to right, #010000, #1e77b3);">
+    <h1 class="display-3 fw-bold text-white text-shadow">Welcome to Our Hotel Booking Service</h1>
+    <p class="fs-4 text-white">Find the perfect hotel for your stay.</p>
+    <button (click)="hotelDataService.fetchAllHotels(); router.navigate(['/app-hotel-card-display'])" class="btn btn-light btn-lg shadow">
+        Explore Hotels
+    </button>
+  </div>
+  

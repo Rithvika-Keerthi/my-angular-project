@@ -1,0 +1,55 @@
+<!-- Booking Details Table -->
+<div *ngIf="!loading && !error && bookingDetails?.length" class="card shadow" 
+  style="border-radius: 10px; overflow: hidden; box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);">
+  
+  <div class="card-header text-white p-3" 
+    style="background-color: #007bff; border-radius: 10px 10px 0 0;">
+    <h3 class="mb-0">Booking Details</h3>
+  </div>
+
+  <div class="card-body">
+    <table class="table table-bordered" style="border-radius: 10px; overflow: hidden;">
+      <thead class="table-light">
+        <tr style="background-color: #007bff; color: white; text-align: center; padding: 15px;">
+          <th>Booking ID</th>
+          <th>Hotel Name</th>
+          <th>Room Type</th>
+          <th>Check-in Date</th>
+          <th>Check-out Date</th>
+          <th>Total Cost</th>
+          <th>Status</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let booking of bookingDetails" style="text-align: center; font-size: 16px;">
+          <td>#{{ booking?.BookingID || 'N/A' }}</td>
+          <td>{{ booking?.HotelName || 'N/A' }}</td>
+          <td>{{ booking?.RoomType || 'N/A' }}</td>
+          <td>{{ booking?.CheckInDate ? (booking?.CheckInDate | date:'mediumDate') : 'N/A' }}</td>
+          <td>{{ booking?.CheckOutDate ? (booking?.CheckOutDate | date:'mediumDate') : 'N/A' }}</td>
+          <td>₹{{ booking?.TotalCost || 0 }}</td>
+          <td>
+            <span class="badge px-3 py-2" 
+              [ngClass]="{
+                'bg-success': booking?.Status === 'Confirmed',
+                'bg-warning': booking?.Status === 'Pending',
+                'bg-danger': booking?.Status === 'Cancelled'
+              }" 
+              style="font-size: 14px; font-weight: bold;">
+              {{ booking?.Status || 'N/A' }}
+            </span>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
+  <div class="card-footer p-3" style="background-color: #f8f9fa; border-radius: 0 0 10px 10px;">
+    <div class="d-flex justify-content-center">
+      <button class="btn btn-outline-primary" routerLink="/hotels" 
+        style="border-radius: 5px; font-size: 16px; padding: 10px 20px;">
+        <i class="bi bi-house-door me-2"></i>Back to Home
+      </button>
+    </div>
+  </div>
+</div>

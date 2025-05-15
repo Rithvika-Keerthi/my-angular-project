@@ -1,0 +1,37 @@
+<div class="container py-5">
+    <div class="row justify-content-center">
+      <div class="col-md-6">
+        <div class="card shadow">
+          <div class="card-header bg-primary text-white">
+            <h3 class="mb-0">Room Booking</h3>
+          </div>
+          <div class="card-body">
+            <form [formGroup]="bookingForm" (ngSubmit)="onSubmit()">
+              <div class="mb-3">
+                <label for="checkInDate" class="form-label">Check-in Date</label>
+                <input type="date" 
+                       class="form-control" 
+                       id="checkInDate" 
+                       formControlName="checkInDate">
+              </div>
+  
+              <div class="mb-3">
+                <label for="checkOutDate" class="form-label">Check-out Date</label>
+                <input type="date" 
+                       class="form-control" 
+                       id="checkOutDate" 
+                       formControlName="checkOutDate">
+              </div>
+  
+              <button type="submit" 
+                      class="btn btn-primary w-100"
+                      [disabled]="!bookingForm.valid">
+                Confirm Booking
+              </button>
+            </form>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  
